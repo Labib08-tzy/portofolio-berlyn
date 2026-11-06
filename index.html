@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Berlyn Tiara Hapsari — Network Engineer & Aesthetic Portfolio</title>
+  <meta name="description" content="Portofolio Megah Berlyn Tiara Hapsari — Siswa TJKT SMK Negeri 1 Giritontro. Network Engineer, Frank Ocean Listener & Cyber-Kawaii Antigravity Aesthetic.">
+  <meta name="author" content="Berlyn Tiara Hapsari">
+  <meta property="og:title" content="Berlyn Tiara Hapsari — Cyber-Kawaii Portfolio">
+  <meta property="og:description" content="TJKT Student, Network Infrastructure Enthusiast & Frank Ocean Listener.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#06000a">
+
+  <!-- Google Fonts Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Dynamic Background Canvas (Galaxy Stars + Cyber TJKT Network Mesh) -->
+  <canvas id="bgCanvas"></canvas>
+  <div class="ambient-noise"></div>
+
+  <!-- Custom Dual-Ring Glow Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- ═══════════════ PRELOADER SCREEN ═══════════════ -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-emblem">
+      <div class="preloader-ring"></div>
+      <div class="preloader-ring"></div>
+      <div class="preloader-core">✦</div>
+    </div>
+    <div class="preloader-title">BERLYN TIARA HAPSARI</div>
+    <div class="preloader-bar-wrap">
+      <div class="preloader-bar"></div>
+    </div>
+    <div class="preloader-sub">INITIALIZING ANTIGRAVITY ENGINE...</div>
+  </div>
+
+  <!-- ═══════════════ NAVBAR ═══════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#beranda" class="nav-brand">
+        <div class="brand-emblem"><span>B</span></div>
+        <div class="brand-info">
+          <span class="brand-name">BERLYN T.H</span>
+          <span class="brand-status"><span class="status-dot"></span> TJKT CORE ONLINE</span>
+        </div>
+      </a>
+
+      <div class="nav-menu-wrapper">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#beranda" class="nav-link active">Beranda</a></li>
+          <li><a href="#tentang" class="nav-link">Liner Notes</a></li>
+          <li><a href="#keterampilan" class="nav-link">Tracklist</a></li>
+          <li><a href="#praktikum" class="nav-link">Discography</a></li>
+          <li><a href="#kontak" class="nav-link">Outro</a></li>
+        </ul>
+
+        <!-- Audio Player Pill Toggle in Navbar -->
+        <button class="nav-audio-pill" id="navAudioPill" title="Toggle Frank Ocean Sound Ambient">
+          <span class="nav-audio-icon">🎧</span>
+          <div class="nav-audio-bars">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <span class="nav-audio-label" id="navAudioLabel">Audio On</span>
+        </button>
+
+        <!-- Cute Terminal Trigger Button -->
+        <button class="nav-terminal-btn" id="terminalTriggerBtn" title="Buka Hacker Console TJKT">
+          <span>&gt;_</span>
+        </button>
+
+        <!-- Mobile Hamburger -->
+        <button class="nav-hamburger" id="navHamburger" aria-label="Toggle Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════ HERO / BERANDA ═══════════════ -->
+  <section class="hero" id="beranda">
+    <div class="hero-glow-blob hero-glow-1"></div>
+    <div class="hero-glow-blob hero-glow-2"></div>
+    <div class="hero-glow-blob hero-glow-3"></div>
+    <div class="hero-grid-matrix"></div>
+
+    <div class="container">
+      <div class="hero-layout">
+        
+        <!-- Left Column: Typography & Action -->
+        <div class="hero-text-col reveal-init">
+          <div class="hero-pill-tag">
+            <span class="hero-pill-icon">✦</span>
+            <span class="hero-pill-text">SMK NEGERI 1 GIRITONTRO // TJKT 2026</span>
+          </div>
+
+          <h1 class="hero-title">
+            HELLO, I'M
+            <span class="name-highlight">Berlyn Tiara Hapsari</span>
+          </h1>
+
+          <div class="hero-tagline">
+            <span>TJKT Student</span>
+            <span class="sep">♡</span>
+            <span>Network Enthusiast</span>
+            <span class="sep">♡</span>
+            <span>Frank Ocean Listener</span>
+          </div>
+
+          <p class="hero-bio">
+            Mengeksplorasi infrastruktur jaringan komputer dengan presisi teknis tingkat tinggi, 
+            dibalut estetika <em>Frank Ocean</em> dan sentuhan <strong>cyber-kawaii antigravity</strong>. 
+            Siap untuk Praktik Kerja Lapangan (PKL) &amp; kolaborasi proyek infrastruktur IT.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#tentang" class="btn-grand btn-grand-primary">
+              <span class="btn-grand-icon">✦</span>
+              <span>Jelajahi Profil</span>
+            </a>
+            <a href="assets/docs/cv.html" target="_blank" class="btn-grand btn-grand-outline">
+              <span class="btn-grand-icon">📄</span>
+              <span>Lihat CV Lengkap</span>
+            </a>
+          </div>
+
+          <div class="hero-micro-stats">
+            <div class="stat-item">
+              <span class="stat-num" id="livePingStat">1ms</span>
+              <span class="stat-lbl">Network Latency</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">100%</span>
+              <span class="stat-lbl">Packet Integrity</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">Cat6</span>
+              <span class="stat-lbl">Gigabit Standard</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Avatar & Dynamic Floating Badges -->
+        <div class="hero-avatar-col reveal-init">
+          <div class="avatar-stage">
+            <div class="avatar-holo-ring"></div>
+            <div class="avatar-holo-ring"></div>
+            <div class="avatar-holo-ring"></div>
+
+            <!-- Avatar Frame with Real User Photo avatar.jpg -->
+            <div class="avatar-frame antigravity-slow" id="avatarCard">
+              <div class="avatar-inner">
+                <img src="assets/img/avatar.jpg" alt="Berlyn Tiara Hapsari" class="avatar-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'%3E%3Crect width=\'100\' height=\'100\' fill=\'%231a0030\'/%3E%3Ctext x=\'50%25\' y=\'55%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23ff2d95\' font-size=\'40\'%3E%E2%99%A1%3C/text%3E%3C/svg%3E'">
+                <div class="avatar-lens-shine"></div>
+              </div>
+            </div>
+
+            <!-- Floating Antigravity Tech Stickers around Avatar -->
+            <div class="floating-badge badge-pos-1 antigravity-medium antigravity-delay-1">
+              <span class="badge-dot green"></span>
+              <span>IP: 192.168.1.1/24</span>
+            </div>
+
+            <div class="floating-badge badge-pos-2 antigravity-drift antigravity-delay-2">
+              <span class="badge-icon">💖</span>
+              <span>VLAN 10 // TJKT_QUEEN</span>
+            </div>
+
+            <div class="floating-badge badge-pos-3 antigravity-medium antigravity-delay-3">
+              <span class="badge-dot gold"></span>
+              <span>Cisco Packet Tracer</span>
+            </div>
+
+            <div class="floating-badge badge-pos-4 antigravity-slow antigravity-delay-4">
+              <span class="badge-icon">🎧</span>
+              <span>Frank Ocean • Nights</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ SECTION 01: LINER NOTES (TENTANG SAYA) ═══════════════ -->
+  <section class="section" id="tentang">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-kicker">✦ SIDE A — TRACK 01</span>
+        <h2 class="section-title">Liner Notes<span class="title-heart">♡</span></h2>
+        <p class="section-desc">Catatan booklet album tentang identitas, filosofi jaringan, dan dedikasi belajar di SMK Negeri 1 Giritontro.</p>
+      </div>
+
+      <div class="liner-notes-grid">
+        
+        <!-- Left: Deluxe Booklet -->
+        <div class="liner-booklet reveal-init">
+          <div class="liner-booklet-header">
+            <span class="booklet-tape">ARCHIVE // BTH-TJKT-2026</span>
+            <span class="booklet-barcode">||| | ||||| || |||||| |</span>
+          </div>
+
+          <div class="liner-content">
+            <p class="lead">
+              Halo! Saya <strong>Berlyn Tiara Hapsari</strong>, siswi jurusan 
+              <strong>Teknik Jaringan Komputer dan Telekomunikasi (TJKT)</strong> di 
+              <em>SMK Negeri 1 Giritontro</em>.
+            </p>
+            <p>
+              Bagi saya, arsitektur jaringan komputer bukan sekadar kabel dan sinyal biner; 
+              ia adalah simfoni komunikasi data di mana setiap router, switch, dan subnet 
+              berkolaborasi secara harmonis layaknya komposisi musik yang presisi.
+            </p>
+            <p>
+              Terinspirasi oleh kedalaman lirik dan atmosfer melankolis <em>Frank Ocean</em>, 
+              saya membawa ketelitian artistik ke dalam ranah teknis — dari crimping kabel RJ45 berstandar Fluke, 
+              simulasi topologi routing statis di Cisco Packet Tracer, hingga setup server Linux berkinerja tinggi.
+            </p>
+
+            <div class="lyric-quote-box">
+              <p class="lyric-text">"If you could see my thoughts, you would see our faces..."</p>
+              <span class="lyric-author">— Frank Ocean, White Ferrari (Blonde)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Station Specs Card -->
+        <div class="liner-specs-card reveal-init antigravity-slow">
+          <div class="specs-title-row">
+            <h3 class="specs-title"><span>✦</span> STATION METRICS</h3>
+            <span class="specs-pulse"></span>
+          </div>
+
+          <div class="specs-list">
+            <div class="spec-row">
+              <span class="spec-key">🏫 Institusi</span>
+              <span class="spec-val">SMKN 1 Giritontro</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">💻 Kompetensi</span>
+              <span class="spec-val highlight">TJKT (Teknik Jaringan)</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">📍 Lokasi Lab</span>
+              <span class="spec-val">Wonogiri, Jawa Tengah</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">⚡ Target PKL</span>
+              <span class="spec-val highlight">Network &amp; IT Support</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">🎧 Heavy Rotation</span>
+              <span class="spec-val">Frank Ocean — Blonde</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-key">🌸 Core Vibe</span>
+              <span class="spec-val">Cyber-Kawaii Antigravity</span>
+            </div>
+          </div>
+
+          <!-- Live Digital Clock -->
+          <div class="live-clock-box">
+            <div>
+              <span class="live-clock-lbl">LOCAL STATION TIME (WIB)</span>
+              <div class="live-clock-time" id="liveClockDisplay">16:15:00 WIB</div>
+            </div>
+            <span style="font-size: 1.8rem;">⏰</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ SECTION 02: TRACKLIST (KETERAMPILAN) ═══════════════ -->
+  <section class="section section-alt" id="keterampilan">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-kicker">✦ SIDE B — MASTER REPERTOIRE</span>
+        <h2 class="section-title">Tracklist Keterampilan<span class="title-heart">♡</span></h2>
+        <p class="section-desc mx-auto">Kompilasi kemampuan teknis telekomunikasi &amp; jaringan yang dikuasai melalui praktikum intensif di laboratorium sekolah.</p>
+      </div>
+
+      <div class="skills-wrapper">
+        
+        <!-- Filter Category Nav -->
+        <div class="skills-filter-nav">
+          <button class="filter-btn active" data-filter="all">Semua Track (6)</button>
+          <button class="filter-btn" data-filter="networking">Networking (3)</button>
+          <button class="filter-btn" data-filter="hardware">Hardware &amp; OS (2)</button>
+          <button class="filter-btn" data-filter="server">Server &amp; Admin (1)</button>
+        </div>
+
+        <!-- Tracklist Items -->
+        <div class="tracklist-container" id="tracklistContainer">
+          
+          <!-- Track 01 -->
+          <div class="track-row reveal-init" data-category="hardware">
+            <span class="track-num">01</span>
+            <div class="track-main-info">
+              <h3 class="track-title">Perakitan PC &amp; Hardware Diagnostics</h3>
+              <p class="track-subtitle">Assembly motherboard, CPU, RAM, PSU, cable management &amp; BIOS configuration.</p>
+            </div>
+            <div class="track-tags">
+              <span class="track-tag-pill">Hardware</span>
+              <span class="track-tag-pill">BIOS / UEFI</span>
+            </div>
+            <div class="track-meter-col">
+              <span class="track-percent">90%</span>
+              <div class="track-progress-bar">
+                <div class="track-progress-fill" data-progress="90%"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Track 02 -->
+          <div class="track-row reveal-init" data-category="networking">
+            <span class="track-num">02</span>
+            <div class="track-main-info">
+              <h3 class="track-title">Crimping Kabel LAN UTP/STP RJ-45</h3>
+              <p class="track-subtitle">Standarisasi TIA/EIA-568A &amp; 568B, straight-through, cross-over &amp; Fluke cable testing.</p>
+            </div>
+            <div class="track-tags">
+              <span class="track-tag-pill">TIA/EIA-568B</span>
+              <span class="track-tag-pill">Gigabit Cat6</span>
+            </div>
+            <div class="track-meter-col">
+              <span class="track-percent">95%</span>
+              <div class="track-progress-bar">
+                <div class="track-progress-fill" data-progress="95%"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Track 03 -->
+          <div class="track-row reveal-init" data-category="networking">
+            <span class="track-num">03</span>
+            <div class="track-main-info">
+              <h3 class="track-title">Desain &amp; Analisis Topologi Jaringan</h3>
+              <p class="track-subtitle">Hierarchical network model (Core, Distribution, Access layer) &amp; redundancy.</p>
+            </div>
+            <div class="track-tags">
+              <span class="track-tag-pill">Star Topology</span>
+              <span class="track-tag-pill">Subnetting CIDR</span>
+            </div>
+            <div class="track-meter-col">
+              <span class="track-percent">88%</span>
+              <div class="track-progress-bar">
+                <div class="track-progress-fill" data-progress="88%"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Track 04 -->
+          <div class="track-row reveal-init" data-category="networking">
+            <span class="track-num">04</span>
+            <div class="track-main-info">
+              <h3 class="track-title">Cisco Packet Tracer Network Simulation</h3>
+              <p class="track-subtitle">VLAN 802.1Q, Inter-VLAN Routing (Router-on-a-stick), Static Route, DHCP Server pool.</p>
+            </div>
+            <div class="track-tags">
+              <span class="track-tag-pill">VLAN / Trunk</span>
+              <span class="track-tag-pill">CLI IOS</span>
+            </div>
+            <div class="track-meter-col">
+              <span class="track-percent">85%</span>
+              <div class="track-progress-bar">
+                <div class="track-progress-fill" data-progress="85%"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Track 05 -->
+          <div class="track-row reveal-init" data-category="hardware">
+            <span class="track-num">05</span>
+            <div class="track-main-info">
+              <h3 class="track-title">Instalasi &amp; Dual-Boot OS (Linux &amp; Windows)</h3>
+              <p class="track-subtitle">Partisi GPT/MBR, driver installation, security patches &amp; baseline optimization.</p>
+            </div>
+            <div class="track-tags">
+              <span class="track-tag-pill">Debian / Ubuntu</span>
+              <span class="track-tag-pill">Win 11 Pro</span>
+            </div>
+            <div class="track-meter-col">
+              <span class="track-percent">92%</span>
+              <div class="track-progress-bar">
+                <div class="track-progress-fill" data-progress="92%"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Track 06 -->
+          <div class="track-row reveal-init" data-category="server">
+            <span class="track-num">06</span>
+            <div class="track-main-info">
+              <h3 class="track-title">Linux Server Administration &amp; Troubleshooting</h3>
+              <p class="track-subtitle">SSH remote access, Apache/Nginx web server, FTP, DNS bind9 &amp; netfilter firewall.</p>
+            </div>
+            <div class="track-tags">
+              <span class="track-tag-pill">SysAdmin</span>
+              <span class="track-tag-pill">Bash CLI</span>
+            </div>
+            <div class="track-meter-col">
+              <span class="track-percent">82%</span>
+              <div class="track-progress-bar">
+                <div class="track-progress-fill" data-progress="82%"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Interactive Real-Time Packet Simulator Widget -->
+        <div class="packet-sim-box reveal-init">
+          <div class="sim-header">
+            <div class="sim-title">
+              <span>⚡</span> INTERACTIVE PACKET TRANSMISSION SIMULATOR
+            </div>
+            <button class="sim-run-btn" id="runPacketSimBtn">
+              <span>Kirim Paket Data ➔</span>
+            </button>
+          </div>
+
+          <div class="sim-pipeline">
+            <div class="pipeline-wire"></div>
+            <div class="pipeline-packet" id="pipelinePacket"></div>
+
+            <div class="sim-node">
+              <div class="node-icon-box">💻</div>
+              <span class="node-name">Client PC (192.168.1.10)</span>
+            </div>
+
+            <div class="sim-node">
+              <div class="node-icon-box">🔀</div>
+              <span class="node-name">Switch Cat2960</span>
+            </div>
+
+            <div class="sim-node">
+              <div class="node-icon-box">🌐</div>
+              <span class="node-name">Router Gateway (192.168.1.1)</span>
+            </div>
+
+            <div class="sim-node">
+              <div class="node-icon-box">☁️</div>
+              <span class="node-name">Internet Core (8.8.8.8)</span>
+            </div>
+          </div>
+
+          <div class="sim-log-text" id="simLogText">
+            STATUS: Ready. Klik tombol di atas untuk mengirimkan paket ICMP Ping 64-byte.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ SECTION 03: DISCOGRAPHY (PRAKTIKUM) ═══════════════ -->
+  <section class="section" id="praktikum">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-kicker">✦ SIDE C — VINYL ARCHIVES</span>
+        <h2 class="section-title">Discography Praktikum<span class="title-heart">♡</span></h2>
+        <p class="section-desc">Dokumentasi hasil eksperimen dan studi kasus praktikum lab jaringan, dipresentasikan dalam format cover piringan hitam kolektor.</p>
+      </div>
+
+      <div class="disco-showcase-grid">
+
+        <!-- Album 01 -->
+        <div class="vinyl-album-card reveal-init" data-project="vlan">
+          <div class="vinyl-stage-wrap">
+            <div class="vinyl-sleeve">
+              <div class="vinyl-art-canvas art-vlan">
+                <div class="sleeve-badge-top">
+                  <span class="sleeve-track-id">VOL. 01</span>
+                  <span class="sleeve-year">2024</span>
+                </div>
+                <div class="sleeve-center-icon">🔀</div>
+                <div class="sleeve-bottom-title">Simulasi Jaringan VLAN Multi-Subnet</div>
+              </div>
+            </div>
+            <div class="vinyl-disc">
+              <div class="vinyl-center-sticker">BTH<br>TJKT</div>
+            </div>
+          </div>
+          <div class="vinyl-card-body">
+            <h3 class="vinyl-card-title">Simulasi Jaringan VLAN Multi-Subnet</h3>
+            <p class="vinyl-card-desc">Konfigurasi VLAN 10 (Siswa) dan VLAN 20 (Guru) menggunakan switch manageable Cisco dan Router-on-a-Stick.</p>
+            <div class="vinyl-card-footer">
+              <span class="vinyl-category-pill">Cisco Packet Tracer</span>
+              <span class="vinyl-view-cta">Buka Jurnal ➔</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Album 02 -->
+        <div class="vinyl-album-card reveal-init" data-project="crimping">
+          <div class="vinyl-stage-wrap">
+            <div class="vinyl-sleeve">
+              <div class="vinyl-art-canvas art-crimping">
+                <div class="sleeve-badge-top">
+                  <span class="sleeve-track-id">VOL. 02</span>
+                  <span class="sleeve-year">2024</span>
+                </div>
+                <div class="sleeve-center-icon">🔌</div>
+                <div class="sleeve-bottom-title">Praktek Crimping RJ-45 &amp; Sertifikasi</div>
+              </div>
+            </div>
+            <div class="vinyl-disc">
+              <div class="vinyl-center-sticker">TIA<br>568B</div>
+            </div>
+          </div>
+          <div class="vinyl-card-body">
+            <h3 class="vinyl-card-title">Praktek Crimping RJ-45 &amp; Sertifikasi</h3>
+            <p class="vinyl-card-desc">Pembuatan kabel Straight &amp; Cross standar Cat6 dengan pengujian pinout 1-8 100% pass menggunakan cable tester.</p>
+            <div class="vinyl-card-footer">
+              <span class="vinyl-category-pill">Physical Layer</span>
+              <span class="vinyl-view-cta">Buka Jurnal ➔</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Album 03 -->
+        <div class="vinyl-album-card reveal-init" data-project="mikrotik">
+          <div class="vinyl-stage-wrap">
+            <div class="vinyl-sleeve">
+              <div class="vinyl-art-canvas art-mikrotik">
+                <div class="sleeve-badge-top">
+                  <span class="sleeve-track-id">VOL. 03</span>
+                  <span class="sleeve-year">2025</span>
+                </div>
+                <div class="sleeve-center-icon">📡</div>
+                <div class="sleeve-bottom-title">Konfigurasi Router &amp; Bandwidth Queue</div>
+              </div>
+            </div>
+            <div class="vinyl-disc">
+              <div class="vinyl-center-sticker">RB<br>750</div>
+            </div>
+          </div>
+          <div class="vinyl-card-body">
+            <h3 class="vinyl-card-title">Konfigurasi Router &amp; Bandwidth Queue</h3>
+            <p class="vinyl-card-desc">Penerapan NAT Masquerade, DHCP Server, Simple Queue Bandwidth Management, dan Firewall Filter Rules.</p>
+            <div class="vinyl-card-footer">
+              <span class="vinyl-category-pill">RouterOS / MikroTik</span>
+              <span class="vinyl-view-cta">Buka Jurnal ➔</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Album 04 -->
+        <div class="vinyl-album-card reveal-init" data-project="server">
+          <div class="vinyl-stage-wrap">
+            <div class="vinyl-sleeve">
+              <div class="vinyl-art-canvas art-server">
+                <div class="sleeve-badge-top">
+                  <span class="sleeve-track-id">VOL. 04</span>
+                  <span class="sleeve-year">2025</span>
+                </div>
+                <div class="sleeve-center-icon">🐧</div>
+                <div class="sleeve-bottom-title">Deployment Linux Ubuntu Web Server</div>
+              </div>
+            </div>
+            <div class="vinyl-disc">
+              <div class="vinyl-center-sticker">LINUX<br>CORE</div>
+            </div>
+          </div>
+          <div class="vinyl-card-body">
+            <h3 class="vinyl-card-title">Deployment Linux Ubuntu Web Server</h3>
+            <p class="vinyl-card-desc">Instalasi headless Ubuntu Server, hardening SSH, konfigurasi virtual host Apache2, dan transfer file melalui SFTP.</p>
+            <div class="vinyl-card-footer">
+              <span class="vinyl-category-pill">System Admin</span>
+              <span class="vinyl-view-cta">Buka Jurnal ➔</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ SECTION 04: OUTRO (KONTAK & NOW PLAYING) ═══════════════ -->
+  <section class="section section-alt" id="kontak">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-kicker">✦ SIDE D — FINAL OUTRO</span>
+        <h2 class="section-title">Outro &amp; Kontak<span class="title-heart">♡</span></h2>
+        <p class="section-desc">Pintu komunikasi terbuka lebar untuk pertanyaan, tawaran magang/PKL, atau sekadar berbagi playlist Frank Ocean.</p>
+      </div>
+
+      <div class="outro-layout-grid">
+        
+        <!-- Left Column: Contact Cards + Quick Message -->
+        <div class="contact-stack reveal-init">
+          
+          <a href="mailto:berlyn.tiara@email.com" class="contact-card-item">
+            <div class="contact-card-icon">✉️</div>
+            <div class="contact-card-info">
+              <span class="contact-lbl">Surat Elektronik</span>
+              <span class="contact-val">berlyn.tiara@email.com</span>
+            </div>
+            <span class="contact-arrow">➔</span>
+          </a>
+
+          <a href="https://wa.me/6281234567890" target="_blank" class="contact-card-item">
+            <div class="contact-card-icon">💬</div>
+            <div class="contact-card-info">
+              <span class="contact-lbl">Direct WhatsApp</span>
+              <span class="contact-val">+62 812-3456-7890</span>
+            </div>
+            <span class="contact-arrow">➔</span>
+          </a>
+
+          <a href="https://instagram.com/berlyntiara" target="_blank" class="contact-card-item">
+            <div class="contact-card-icon">📷</div>
+            <div class="contact-card-info">
+              <span class="contact-lbl">Instagram feed</span>
+              <span class="contact-val">@berlyntiara</span>
+            </div>
+            <span class="contact-arrow">➔</span>
+          </a>
+
+          <a href="https://linkedin.com/in/berlyntiara" target="_blank" class="contact-card-item">
+            <div class="contact-card-icon">💼</div>
+            <div class="contact-card-info">
+              <span class="contact-lbl">LinkedIn Network</span>
+              <span class="contact-val">Berlyn Tiara Hapsari</span>
+            </div>
+            <span class="contact-arrow">➔</span>
+          </a>
+
+          <!-- Quick Interactive Message Form -->
+          <form class="quick-message-form" id="quickMessageForm">
+            <h4 style="font-size: 1.1rem; font-weight: 800; color: var(--white-pure);">Kirim Pesan Singkat Langsung</h4>
+            
+            <div class="form-group">
+              <label class="form-label" for="senderName">Nama Lengkap / Perusahaan</label>
+              <input type="text" id="senderName" class="form-input" placeholder="e.g. Pembimbing PKL / HRD" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="senderMessage">Pesan / Undangan PKL</label>
+              <textarea id="senderMessage" class="form-textarea" placeholder="Tuliskan pesan Anda di sini..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-grand btn-grand-primary" style="width: 100%;">
+              <span>Kirim Melalui WhatsApp ➔</span>
+            </button>
+          </form>
+
+        </div>
+
+        <!-- Right Column: Grand "Now Playing" Frank Ocean Music Widget -->
+        <div class="now-playing-box reveal-init antigravity-slow">
+          <div class="np-top-header">
+            <span class="np-badge-live"><span class="status-dot"></span> NOW SPINNING</span>
+            <span class="np-album-source" id="npAlbumSource">BLONDE (2016)</span>
+          </div>
+
+          <!-- Turntable Vinyl Stage -->
+          <div class="np-turntable">
+            <div class="np-vinyl-disc spinning" id="npVinylDisc">
+              <div class="np-vinyl-center">
+                <div class="np-spindle-hole"></div>
+              </div>
+            </div>
+            <div class="np-tonearm"></div>
+          </div>
+
+          <!-- Track Info -->
+          <div class="np-track-details">
+            <h3 class="np-song-title" id="npSongTitle">Nights</h3>
+            <p class="np-artist-name">Frank Ocean</p>
+          </div>
+
+          <!-- Real-Time Equalizer Waveform Bars -->
+          <div class="np-equalizer" id="npEqualizer">
+            <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+            <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+            <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+            <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
+          </div>
+
+          <!-- Scrub Bar -->
+          <div class="np-scrub-wrap">
+            <div class="np-scrub-bar" id="npScrubBar">
+              <div class="np-scrub-fill" id="npScrubFill"></div>
+            </div>
+            <div class="np-time-row">
+              <span id="npCurrentTime">01:42</span>
+              <span id="npTotalTime">05:07</span>
+            </div>
+          </div>
+
+          <!-- Playback Controls -->
+          <div class="np-controls-row">
+            <button class="np-ctrl-btn" id="npPrevBtn" title="Previous Track">⏮</button>
+            <button class="np-play-btn" id="npPlayBtn" title="Play / Pause Audio Ambient">▶</button>
+            <button class="np-ctrl-btn" id="npNextBtn" title="Next Track">⏭</button>
+            <button class="np-ctrl-btn" id="npHeartBtn" title="Like Track">♡</button>
+          </div>
+
+          <!-- Direct HTML5 Native Player Fallback for 100% Guaranteed Sound -->
+          <div style="margin-top: 18px; width: 100%;">
+            <audio id="nativeAudioControls" controls style="width: 100%; height: 36px; border-radius: 20px; filter: invert(0.9) hue-rotate(280deg); opacity: 0.9;">
+              <source src="assets/audio/nights.wav" type="audio/wav">
+              Browser Anda tidak mendukung tag audio.
+            </audio>
+          </div>
+
+          <!-- Track Pills Selector -->
+          <div class="np-track-selector">
+            <button class="track-pill-select active" data-track="0">Nights</button>
+            <button class="track-pill-select" data-track="1">Pink + White</button>
+            <button class="track-pill-select" data-track="2">Lost</button>
+            <button class="track-pill-select" data-track="3">White Ferrari</button>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">BERLYN TIARA HAPSARI</div>
+      <p class="footer-quote">
+        "Every subnet is a thought, every packet is a connection. Round your city, round the clock."
+      </p>
+      <p class="footer-copy">
+        &copy; 2026 Berlyn Tiara Hapsari • SMK Negeri 1 Giritontro (TJKT).<br>
+        Crafted with <span class="footer-heart">♡</span>, Antigravity Physics, and Frank Ocean's Vinyl Warmth.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ═══════════════ BACK TO TOP ═══════════════ -->
+  <button class="back-to-top-btn" id="backToTopBtn" aria-label="Scroll to top">↑</button>
+
+  <!-- ═══════════════ TOAST NOTIFICATION ═══════════════ -->
+  <div class="toast-box" id="toastBox">Notifikasi</div>
+
+  <!-- ═══════════════ DISCOGRAPHY JOURNAL MODAL ═══════════════ -->
+  <div class="disco-modal-overlay" id="discoModalOverlay">
+    <div class="disco-modal-dialog">
+      <div class="modal-header-banner">
+        <span class="modal-tag-chip" id="modalTagChip">LAB ARCHIVE</span>
+        <button class="modal-close-icon" id="modalCloseBtn">&times;</button>
+      </div>
+      <div class="modal-body-content">
+        <h3 class="modal-project-title" id="modalProjectTitle">Judul Praktikum</h3>
+        <p style="color: var(--silver-mist); line-height: 1.8;" id="modalProjectSynopsis">Deskripsi praktikum.</p>
+
+        <h4 class="modal-section-h">Spesifikasi &amp; Konfigurasi Teknis</h4>
+        <div class="modal-specs-grid">
+          <div class="modal-spec-col">
+            <span class="modal-spec-k">Perangkat Utama</span>
+            <span class="modal-spec-v" id="modalSpecDevice">Cisco Catalyst 2960</span>
+          </div>
+          <div class="modal-spec-col">
+            <span class="modal-spec-k">Protokol / Standar</span>
+            <span class="modal-spec-v" id="modalSpecProtocol">IEEE 802.1Q / VTP</span>
+          </div>
+          <div class="modal-spec-col">
+            <span class="modal-spec-k">Pengujian (Testing)</span>
+            <span class="modal-spec-v" id="modalSpecTesting">ICMP Echo Success 100%</span>
+          </div>
+          <div class="modal-spec-col">
+            <span class="modal-spec-k">Status Jurnal</span>
+            <span class="modal-spec-v" style="color: var(--teal-glow);">Verified by Guru Pengampu</span>
+          </div>
+        </div>
+
+        <h4 class="modal-section-h">Catatan Khusus Praktikum</h4>
+        <p style="color: var(--white-soft); font-size: 0.92rem; line-height: 1.8;" id="modalProjectNotes">
+          Semua langkah konfigurasi telah diuji dan didokumentasikan sesuai standar kurikulum TJKT.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ HACKER CONSOLE / TERMINAL MODAL ═══════════════ -->
+  <div class="terminal-modal-overlay" id="terminalModalOverlay">
+    <div class="terminal-window">
+      <div class="terminal-titlebar">
+        <div class="terminal-dots">
+          <span class="t-dot t-dot-red"></span>
+          <span class="t-dot t-dot-yellow"></span>
+          <span class="t-dot t-dot-green"></span>
+        </div>
+        <span class="terminal-title">berlyn@tjkt-station:~ (bash)</span>
+        <button class="terminal-close-btn" id="terminalCloseBtn">&times;</button>
+      </div>
+
+      <div class="terminal-body" id="terminalBody">
+        <div class="terminal-output" id="terminalOutput">
+          <p style="color: var(--gold-neon);">╔══════════════════════════════════════════════════════════╗</p>
+          <p style="color: var(--pink-soft);">  BERLYN TIARA HAPSARI // TJKT COMMAND CONSOLE v2.6</p>
+          <p style="color: var(--silver-mist);">  Ketik 'help' untuk daftar perintah atau klik tombol cepat di bawah.</p>
+          <p style="color: var(--gold-neon);">╚══════════════════════════════════════════════════════════╝</p>
+        </div>
+
+        <div class="terminal-prompt-line">
+          <span class="terminal-prompt-prefix">berlyn@tjkt-core:~$</span>
+          <input type="text" class="terminal-input" id="terminalInput" placeholder="ketik perintah di sini..." autofocus>
+        </div>
+
+        <div class="terminal-quick-cmds">
+          <button class="quick-cmd-btn" data-cmd="neofetch">neofetch</button>
+          <button class="quick-cmd-btn" data-cmd="ping -c 4 smkn1giritontro.sch.id">ping school</button>
+          <button class="quick-cmd-btn" data-cmd="show-skills">show-skills</button>
+          <button class="quick-cmd-btn" data-cmd="frank-ocean">frank-ocean</button>
+          <button class="quick-cmd-btn" data-cmd="clear">clear</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main JavaScript Logic -->
+  <!-- Audio Element for Frank Ocean Aesthetic Lo-Fi Ambience -->
+  <audio id="globalAudioPlayer" preload="auto" loop></audio>
+  <script src="js/script.js"></script>
+</body>
+</html>

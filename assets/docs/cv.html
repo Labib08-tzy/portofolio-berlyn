@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV — Berlyn Tiara Hapsari | TJKT Network Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="../icons/favicon.svg">
+<style>
+  :root {
+    --bg-dark: #0a0112;
+    --bg-card: rgba(28, 4, 48, 0.7);
+    --pink-hot: #ff2d95;
+    --pink-neon: #ff1493;
+    --pink-soft: #ffa6d5;
+    --purple-deep: #4a0e78;
+    --purple-mid: #9d4edd;
+    --gold: #ffd166;
+    --white: #ffffff;
+    --white-soft: #f5e9fc;
+    --silver: #bca0dc;
+    --border: rgba(255, 45, 149, 0.25);
+  }
+
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: radial-gradient(circle at top, #19022e 0%, var(--bg-dark) 100%);
+    color: var(--white-soft);
+    line-height: 1.7;
+    min-height: 100vh;
+    padding: 40px 20px;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Decorative Ambient Glow */
+  body::before {
+    content: '';
+    position: fixed;
+    top: -100px;
+    left: -100px;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 45, 149, 0.2) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .cv-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    background: var(--bg-card);
+    border: 1.5px solid var(--border);
+    border-radius: 24px;
+    padding: 48px;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 45, 149, 0.2);
+    backdrop-filter: blur(20px);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Header Section */
+  .cv-header {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1.5px dashed var(--border);
+    margin-bottom: 32px;
+  }
+
+  .cv-avatar-box {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    padding: 4px;
+    background: linear-gradient(135deg, var(--pink-hot), var(--purple-mid), var(--gold));
+    box-shadow: 0 0 25px rgba(255, 45, 149, 0.4);
+    flex-shrink: 0;
+  }
+
+  .cv-avatar-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .cv-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .cv-name {
+    font-size: 2.2rem;
+    font-weight: 900;
+    line-height: 1.15;
+    background: linear-gradient(135deg, var(--white) 30%, var(--pink-soft) 70%, var(--pink-hot) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 6px;
+  }
+
+  .cv-tagline {
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .cv-contacts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 0.84rem;
+    color: var(--silver);
+  }
+
+  .cv-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .cv-contact-item a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .cv-contact-item a:hover {
+    color: var(--pink-hot);
+  }
+
+  /* Section Titles */
+  .section-title {
+    font-size: 1.05rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, var(--pink-hot), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 30px 0 16px;
+    border-bottom: 1px solid rgba(255, 45, 149, 0.15);
+    padding-bottom: 8px;
+  }
+
+  p {
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: var(--white-soft);
+    margin-bottom: 12px;
+  }
+
+  /* Timeline */
+  .timeline-item {
+    padding-left: 20px;
+    border-left: 2px solid var(--pink-hot);
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -7px;
+    top: 4px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 10px var(--gold);
+  }
+
+  .timeline-role {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--white);
+  }
+
+  .timeline-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    color: var(--pink-soft);
+    margin-bottom: 6px;
+  }
+
+  /* Skill Badges */
+  .skill-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .skill-badge {
+    padding: 7px 16px;
+    border-radius: 9999px;
+    background: rgba(255, 45, 149, 0.12);
+    border: 1px solid rgba(255, 45, 149, 0.3);
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.5px;
+  }
+
+  .skill-badge.highlight {
+    background: linear-gradient(135deg, rgba(255, 45, 149, 0.3), rgba(157, 78, 221, 0.3));
+    border-color: var(--pink-hot);
+    color: var(--gold);
+  }
+
+  /* Print Action Button */
+  .print-action-bar {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .print-btn {
+    padding: 12px 28px;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, var(--pink-hot), var(--purple-deep));
+    border: 1px solid var(--white);
+    color: var(--white);
+    font-weight: 800;
+    font-size: 0.88rem;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(255, 45, 149, 0.4);
+    transition: all 0.25s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .print-btn:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 0 35px var(--pink-neon);
+  }
+
+  /* Print Media Query */
+  @media print {
+    body {
+      background: #ffffff !important;
+      color: #111111 !important;
+      padding: 0 !important;
+    }
+    .print-action-bar { display: none !important; }
+    .cv-wrapper {
+      border: none !important;
+      box-shadow: none !important;
+      background: transparent !important;
+      padding: 0 !important;
+      max-width: 100% !important;
+    }
+    .cv-name {
+      color: #111111 !important;
+      -webkit-text-fill-color: #111111 !important;
+    }
+    .cv-tagline { color: #d81b60 !important; }
+    .section-title {
+      color: #d81b60 !important;
+      -webkit-text-fill-color: #d81b60 !important;
+      border-bottom: 1.5px solid #d81b60 !important;
+    }
+    p, .timeline-meta, .cv-contacts, .cv-contact-item a { color: #333333 !important; }
+    .timeline-role { color: #111111 !important; }
+    .skill-badge {
+      background: #f8bbd0 !important;
+      color: #880e4f !important;
+      border: 1px solid #c2185b !important;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .cv-header {
+      flex-direction: column;
+      text-align: center;
+    }
+    .cv-contacts {
+      justify-content: center;
+    }
+    .cv-wrapper {
+      padding: 28px 20px;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <div class="cv-wrapper">
+    
+    <!-- Action Bar -->
+    <div class="print-action-bar">
+      <a href="../../index.html" class="print-btn" style="background: rgba(255, 45, 149, 0.15);">
+        <span>← Kembali ke Website</span>
+      </a>
+      <button class="print-btn" onclick="window.print()">
+        <span>🖨️ Cetak / Unduh PDF</span>
+      </button>
+    </div>
+
+    <!-- CV Header -->
+    <header class="cv-header">
+      <div class="cv-avatar-box">
+        <div class="cv-avatar-inner">
+          <img src="../img/avatar.jpg" alt="Berlyn Tiara Hapsari" class="cv-avatar-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'%3E%3Crect width=\'100\' height=\'100\' fill=\'%23ff2d95\'/%3E%3Ctext x=\'50%25\' y=\'55%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23ffffff\' font-size=\'35\'%3EB%3C/text%3E%3C/svg%3E'">
+        </div>
+      </div>
+      <div class="cv-title-group">
+        <h1 class="cv-name">Berlyn Tiara Hapsari</h1>
+        <div class="cv-tagline">TJKT STUDENT &bull; NETWORK INFRASTRUCTURE &bull; SMKN 1 GIRITONTRO</div>
+        <div class="cv-contacts">
+          <span class="cv-contact-item">📧 <a href="mailto:berlyn.tiara@email.com">berlyn.tiara@email.com</a></span>
+          <span class="cv-contact-item">📱 <a href="https://wa.me/6281234567890" target="_blank">+62 812-3456-7890</a></span>
+          <span class="cv-contact-item">📍 Wonogiri, Jawa Tengah</span>
+          <span class="cv-contact-item">💼 <a href="https://linkedin.com/in/berlyntiara" target="_blank">LinkedIn Profile</a></span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Ringkasan Profesional -->
+    <section>
+      <h2 class="section-title"><span>✦</span> Ringkasan Profil</h2>
+      <p>
+        Siswi berdedikasi tinggi dari jurusan <strong>Teknik Jaringan Komputer dan Telekomunikasi (TJKT)</strong> di <em>SMK Negeri 1 Giritontro</em>. Memiliki pemahaman kuat mengenai infrastruktur jaringan fisik dan logic, meliputi terminasi kabel UTP/STP, konfigurasi switch &amp; router Cisco/MikroTik, subnetting IPv4, hingga implementasi server Linux. Berorientasi pada kerapian, ketelitian standar industri, dan siap berkontribusi secara produktif dalam program Praktik Kerja Lapangan (PKL).
+      </p>
+    </section>
+
+    <!-- Pendidikan -->
+    <section>
+      <h2 class="section-title"><span>✦</span> Pendidikan</h2>
+      <div class="timeline-item">
+        <h3 class="timeline-role">SMK Negeri 1 Giritontro</h3>
+        <div class="timeline-meta">Teknik Jaringan Komputer dan Telekomunikasi (TJKT) | 2023 &ndash; 2026 (Sekarang)</div>
+        <p>
+          Fokus pada pemeliharaan perangkat keras komputer, rancang bangun topologi jaringan lokal, simulasi packet routing, dan administrasi sistem operasi jaringan.
+        </p>
+      </div>
+    </section>
+
+    <!-- Keterampilan Teknis -->
+    <section>
+      <h2 class="section-title"><span>✦</span> Keterampilan Teknis (Technical Skills)</h2>
+      <div class="skill-group">
+        <span class="skill-badge highlight">Cisco Packet Tracer</span>
+        <span class="skill-badge highlight">Crimping UTP/STP (Cat6)</span>
+        <span class="skill-badge highlight">MikroTik RouterOS</span>
+        <span class="skill-badge">VLAN 802.1Q &amp; Trunking</span>
+        <span class="skill-badge">Subnetting IPv4 (CIDR/VLSM)</span>
+        <span class="skill-badge">Perakitan PC &amp; Troubleshooting</span>
+        <span class="skill-badge">Linux Server (Ubuntu/Debian)</span>
+        <span class="skill-badge">Apache2 &amp; SSH Hardening</span>
+        <span class="skill-badge">Fluke / LAN Cable Testing</span>
+        <span class="skill-badge">Topologi Jaringan Hierarki</span>
+      </div>
+    </section>
+
+    <!-- Portofolio & Praktikum Lab -->
+    <section>
+      <h2 class="section-title"><span>✦</span> Dokumentasi Praktikum Unggulan</h2>
+      
+      <div class="timeline-item">
+        <h3 class="timeline-role">Simulasi VLAN Multi-Subnet &amp; Inter-VLAN Routing</h3>
+        <div class="timeline-meta">Cisco Packet Tracer | Lab SMKN 1 Giritontro</div>
+        <p>
+          Merancang jaringan sekolah dengan pembagian VLAN 10 (Siswa) dan VLAN 20 (Guru), mengonfigurasi Router-on-a-Stick pada interface sub-gigabit, serta DHCP pool otomatis dengan hasil ping 100% sukses.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <h3 class="timeline-role">Praktek Crimping RJ-45 &amp; Pengujian Kontinuitas</h3>
+        <div class="timeline-meta">Standarisasi TIA/EIA-568A &amp; 568B | Hardware Lab</div>
+        <p>
+          Memproduksi kabel straight-through dan crossover Cat6 dengan standar industri, memastikan seluruh 8-pin terpasang presisi dengan sertifikasi pengujian alat cable tester 100% pas.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <h3 class="timeline-role">Manajemen Bandwidth &amp; NAT Gateway MikroTik</h3>
+        <div class="timeline-meta">RouterBOARD RB750Gr3 | Network Engineering</div>
+        <p>
+          Konfigurasi NAT Masquerade, alokasi IP DHCP Server untuk 100 client lab, dan penerapan Simple Queue untuk pembatasan bandwidth merata per-workstation.
+        </p>
+      </div>
+    </section>
+
+    <!-- Bahasa & Minat -->
+    <section>
+      <h2 class="section-title"><span>✦</span> Bahasa &amp; Minat Tambahan</h2>
+      <p>
+        <strong>Bahasa:</strong> Bahasa Indonesia (Native), Bahasa Inggris (Teknis / Menengah).<br>
+        <strong>Minat:</strong> Cyber Security, Network Architecture, Frank Ocean Soundscapes, Creative UI Engineering.
+      </p>
+    </section>
+
+  </div>
+
+</body>
+</html>
