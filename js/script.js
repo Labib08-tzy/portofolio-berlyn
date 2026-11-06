@@ -392,17 +392,22 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ─── 11. DELUXE NOW PLAYING & REAL AUDIO PLAYER (FRANK OCEAN AMBIENT) ───
+  const defaultAudioUri = window.NIGHTS_AUDIO_URI || 'assets/audio/nights.wav';
+
   const tracks = [
-    { title: 'Nights', album: 'BLONDE (2016)', duration: '05:07', src: 'assets/audio/nights.wav' },
-    { title: 'Pink + White', album: 'BLONDE (2016)', duration: '03:04', src: 'assets/audio/pink_white.wav' },
-    { title: 'Lost', album: 'CHANNEL ORANGE (2012)', duration: '03:54', src: 'assets/audio/lost.wav' },
-    { title: 'White Ferrari', album: 'BLONDE (2016)', duration: '04:08', src: 'assets/audio/white_ferrari.wav' }
+    { title: 'Nights', album: 'BLONDE (2016)', duration: '05:07', src: defaultAudioUri, chords: [174.61, 220, 261.63, 329.63] },
+    { title: 'Pink + White', album: 'BLONDE (2016)', duration: '03:04', src: 'assets/audio/pink_white.wav', chords: [130.81, 164.81, 196] },
+    { title: 'Lost', album: 'CHANNEL ORANGE (2012)', duration: '03:54', src: 'assets/audio/lost.wav', chords: [174.61, 207.65, 261.63] },
+    { title: 'White Ferrari', album: 'BLONDE (2016)', duration: '04:08', src: 'assets/audio/white_ferrari.wav', chords: [130.81, 164.81, 196, 246.94] }
   ];
 
   let currentTrackIdx = 0;
-  let isPlaying = false; // Starts paused until user interacts (compliant with browser autoplay policies)
+  let isPlaying = false;
 
   const globalAudio = document.getElementById('globalAudioPlayer');
+  const nativeAudio = document.getElementById('nativeAudioControls');
+  const targetAudio = nativeAudio || globalAudio;
+
   const npSongTitle = document.getElementById('npSongTitle');
   const npAlbumSource = document.getElementById('npAlbumSource');
   const npCurrentTime = document.getElementById('npCurrentTime');
@@ -418,10 +423,58 @@ document.addEventListener('DOMContentLoaded', () => {
   const trackPillSelects = document.querySelectorAll('.track-pill-select');
   const eqBars = document.querySelectorAll('.eq-bar');
 
-  // Load initial track
-  const nativeAudio = document.getElementById('nativeAudioControls');
-  const targetAudio = nativeAudio || globalAudio;
+  // Direct AudioContext Synthesizer (Zero file dependency fallback for 100% sound in Chrome)
+  let synthCtx = null;
+  let synthTimer = null;
 
+  function initSynthEngine() {
+    if (synthCtx) return;
+    try {
+      const AC = window.AudioContext || window.webkitAudioContext;
+      synthCtx = new AC();
+    } catch(e) {}
+  }
+
+  function playSynthChordLoop(chords) {
+    initSynthEngine();
+    if (!synthCtx) return;
+    if (synthCtx.state === 'suspended') synthCtx.resume();
+
+    stopSynthChordLoop();
+
+    function triggerChord() {
+      if (!isPlaying || !synthCtx) return;
+      const now = synthCtx.currentTime;
+      chords.forEach(freq => {
+        const osc = synthCtx.createOscillator();
+        const gain = synthCtx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(freq, now);
+        osc.detune.setValueAtTime((Math.random() - 0.5) * 10, now);
+
+        gain.gain.setValueAtTime(0.001, now);
+        gain.gain.exponentialRampToValueAtTime(0.06, now + 0.1);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 2.8);
+
+        osc.connect(gain);
+        gain.connect(synthCtx.destination);
+        osc.start(now);
+        osc.stop(now + 3.0);
+      });
+    }
+
+    triggerChord();
+    synthTimer = setInterval(triggerChord, 3000);
+  }
+
+  function stopSynthChordLoop() {
+    if (synthTimer) {
+      clearInterval(synthTimer);
+      synthTimer = null;
+    }
+  }
+
+  // Set initial audio source
   if (targetAudio) {
     targetAudio.src = tracks[currentTrackIdx].src;
     targetAudio.volume = 0.95;
@@ -447,8 +500,10 @@ document.addEventListener('DOMContentLoaded', () => {
         targetAudio.play().then(() => {
           updatePlayUI(true);
           showToast(`Sedang Memutar: Frank Ocean — ${t.title} 🎵`);
-        }).catch(err => {
-          console.log('Audio autoplay prevented:', err);
+        }).catch(() => {
+          // Fallback to Web Audio Synth if Chrome blocks local audio file
+          playSynthChordLoop(t.chords);
+          updatePlayUI(true);
         });
       }
     }
@@ -470,19 +525,29 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function togglePlayState() {
-    if (!targetAudio) return;
+    initSynthEngine();
+    if (synthCtx && synthCtx.state === 'suspended') synthCtx.resume();
 
-    if (targetAudio.paused) {
-      targetAudio.play().then(() => {
-        isPlaying = true;
+    if (!isPlaying) {
+      isPlaying = true;
+      if (targetAudio) {
+        targetAudio.play().then(() => {
+          updatePlayUI(true);
+          showToast(`Memutar Musik: Frank Ocean — ${tracks[currentTrackIdx].title} 🎧`);
+        }).catch(() => {
+          // Web Audio Synth Fallback
+          playSynthChordLoop(tracks[currentTrackIdx].chords);
+          updatePlayUI(true);
+          showToast(`Memutar Lo-Fi Synth: Frank Ocean 🎧`);
+        });
+      } else {
+        playSynthChordLoop(tracks[currentTrackIdx].chords);
         updatePlayUI(true);
-        showToast(`Memutar Musik: Frank Ocean — ${tracks[currentTrackIdx].title} 🎧`);
-      }).catch(e => {
-        console.warn('Playback error:', e);
-      });
+      }
     } else {
-      targetAudio.pause();
       isPlaying = false;
+      if (targetAudio) targetAudio.pause();
+      stopSynthChordLoop();
       updatePlayUI(false);
       showToast('Musik dijeda');
     }
@@ -491,7 +556,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (npPlayBtn) npPlayBtn.addEventListener('click', togglePlayState);
   if (navAudioPill) navAudioPill.addEventListener('click', togglePlayState);
 
-  // Sync native controls with custom UI if user uses native bar
+  // Sync native controls with custom UI
   if (nativeAudio) {
     nativeAudio.addEventListener('play', () => {
       isPlaying = true;
@@ -503,18 +568,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Auto start on first user interaction anywhere on page (resolves browser autoplay policy)
-  function handleFirstInteraction() {
-    if (!isPlaying && targetAudio && targetAudio.paused) {
-      targetAudio.play().then(() => {
-        isPlaying = true;
-        updatePlayUI(true);
-        showToast('Musik Frank Ocean mulai berputar 🎶');
-      }).catch(() => {});
-    }
-    window.removeEventListener('click', handleFirstInteraction);
+  // Handle first user interaction anywhere on page for Chrome Audio policy
+  function handleFirstUserClick() {
+    initSynthEngine();
+    if (synthCtx && synthCtx.state === 'suspended') synthCtx.resume();
   }
-  window.addEventListener('click', handleFirstInteraction, { once: true });
+  window.addEventListener('click', handleFirstUserClick, { once: true });
 
   if (npNextBtn) {
     npNextBtn.addEventListener('click', () => {
